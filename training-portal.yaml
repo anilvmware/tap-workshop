@@ -1,0 +1,42 @@
+apiVersion: learningcenter.tanzu.vmware.com/v1beta1
+kind: TrainingPortal
+metadata:
+  name: tkoworkshop
+spec:
+  portal:
+    ingress:
+      hostname: vmware.tkoworkshop.tanzupartnerdemo.com
+      domain: tkoworkshop.tanzupartnerdemo.com
+    password: VMware1!
+    registration:
+      type: anonymous
+      enabled: true
+    title: Tanzu for Kubernetes Operations Workshop
+#  sessions:
+#    maximum: 10
+  workshops:
+  - name: tko-tkg-workshop
+    reserved: 2
+    capacity: 10
+    expires: 480m
+    orphaned: 60m
+  - name: tko-tmc-workshop
+    reserved: 0
+    capacity: 10
+    expires: 300m
+    orphaned: 60m 
+  - name: tko-tsm-workshop
+    reserved: 2
+    capacity: 10
+    expires: 300m
+    orphaned: 60m
+    env:
+    - name: WORKSHOP_INGRESS_DOMAIN_NAME
+      value: tkoworkshop.tanzupartnerdemo.com
+    - name: MAIN_DOMAIN_NAME
+      value: tanzupartnerdemo.com
+  - name: tko-to-workshop
+    reserved: 0
+    capacity: 10
+    expires: 300m
+    orphaned: 60m

@@ -1,0 +1,32 @@
+apiVersion: learningcenter.tanzu.vmware.com/v1beta1
+kind: Workshop
+metadata:
+  name: tko-tsm-workshop
+spec:
+  title: Tanzu Service Mesh Workshop
+  description: Workshop created to demo the Tanzu Service Mesh capabilities.
+  vendor: eduk8s.io
+  difficulty: beginner
+  duration: 300m
+  url: https://github.com/Tanzu-Partner-SE/tsm-tko
+  content:
+     files: "https://<your pat>:x-oauth-basic@github.com/Tanzu-Partner-SE/tsm-tko/tarball/main?path=--anchored"
+     #files: github.com/Tanzu-Partner-SE/tsm-tko?ref=main
+     image: tanzudemoreg.azurecr.io/taptsm:1.3
+  session:
+    namespaces:
+      budget: small
+    applications:
+      terminal:
+        enabled: true
+        layout: split
+      console:
+        enabled: true
+        vendor: octant
+      editor:
+        enabled: true
+    env:
+    - name: WORKSHOP_INGRESS_DOMAIN_NAME
+      value: tkoworkshop.tanzupartnerdemo.com
+    - name: MAIN_DOMAIN_NAME
+      value: tanzupartnerdemo.com

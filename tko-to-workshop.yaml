@@ -1,0 +1,28 @@
+apiVersion: learningcenter.tanzu.vmware.com/v1beta1
+kind: Workshop
+metadata:
+  name: tko-to-workshop
+spec:
+  title: Tanzu Observability Workshop
+  description: Workshop created to demo the Tanzu Observability capabilities.
+  vendor: eduk8s.io
+  difficulty: beginner
+  duration: 15m
+  url: https://github.com/Tanzu-Partner-SE/TKO-TO-Workshop
+  content:
+     files: "https://<github token>:x-oauth-basic@github.com/Tanzu-Partner-SE/TKO-TO-Workshop/tarball/main?path=--anchored"
+     #files: github.com/Tanzu-Partner-SE/TKO-TO-Workshop?ref=main
+     #files: github.com/Tanzu-Partner-SE/tsm-tko?ref=main
+     image: tanzupartnerworkshop.azurecr.io/tkoto:2.0
+  session:
+    namespaces:
+      budget: small
+    applications:
+      terminal:
+        enabled: true
+        layout: split
+      console:
+        enabled: true
+        vendor: octant
+      editor:
+        enabled: true
